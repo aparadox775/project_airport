@@ -3,9 +3,9 @@ using namespace std;
 #include "airplane.h"
 #include "pasengerAirplane.h"
 #include "cargoAirplane.h"
-#include <cstring>
 #include "proPilot.h"
 #include "unexperiencedPilot.h"
+#include "flight.h"
 int main ()
 {
     int menu;
@@ -76,7 +76,7 @@ int main ()
                         cin >> age;
                         cout << "please enter the name\n";
                         cin >> name;
-                        propilot propilot(flightNumber, age, name);
+                        unexperiencedpilot unexperiencedpilot(flightNumber, age, name);
                         break;
                     }
                     default:
@@ -101,7 +101,7 @@ int main ()
                 cin >> origin;
                 cout << "please enter the destination\n";
                 cin >> destination;
-
+                flight flight(origin, destination, pilotID, airplaneID);
                 break;
             }
 
