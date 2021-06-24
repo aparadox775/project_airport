@@ -1,7 +1,7 @@
 #ifndef CARGOAIRPLANE_H
 #define CARGOAIRPLANE_H
-
-class cargoAirplane
+#include "airplane.h"
+class cargoAirplane: private airplane
 {
 private:
     double capacity;
