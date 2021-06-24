@@ -3,8 +3,9 @@ using namespace std;
 #include "airplane.h"
 #include "pasengerAirplane.h"
 #include "cargoAirplane.h"
-#include "flight.h"
 #include <cstring>
+#include "proPilot.h"
+#include "unexperiencedPilot.h"
 int main ()
 {
     int menu;
@@ -54,27 +55,58 @@ int main ()
                 switch (choosePilot) {
                     case 1: {
                         int rank;
+                        string name;
+                        int age;
                         cout << "please enter the rank:\n";
                         cin >> rank;
-                        pro
+                        cout << "please enter the age\n";
+                        cin >> age;
+                        cout << "please enter the name\n";
+                        cin >> name;
+                        propilot propilot(rank, age, name);
                         break;
                     }
                     case 2: {
-
+                        int flightNumber;
+                        string name;
+                        int age;
+                        cout << "please enter the flight number:\n";
+                        cin >> flightNumber;
+                        cout << "please enter the age\n";
+                        cin >> age;
+                        cout << "please enter the name\n";
+                        cin >> name;
+                        propilot propilot(flightNumber, age, name);
+                        break;
                     }
                     default:
                         cout << "Invalid command";
                         break;
                 }
             }
-            case 4:
+            case 4: {
+                string id;
+                cout << "please enter the pilot id you want to remove";
+                cin >> id;
+                // call remove pilot function
+                break;
+            }
+            case 5: {
+                string pilotID, destination, origin, airplaneID;
+                cout << "please enter the pilot ID:\n";
+                cin >> pilotID;
+                cout << "please enter the airplane ID\n";
+                cin >> airplaneID;
+                cout << "please enter the origin\n";
+                cin >> origin;
+                cout << "please enter the destination\n";
+                cin >> destination;
 
                 break;
-            case 5:
+            }
 
-                break;
             case 6:
-
+                // remove flight
                 break;
             case 7:
 
