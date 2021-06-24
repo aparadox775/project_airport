@@ -13,7 +13,7 @@ int main ()
     while (true) {
 
         cout << "what do you desire to do?\n";
-        cout << "1. Add airplane\t2.remove airplane\n3.add pilot\t4.remove pilot\n5.add flight\t6.remove flight\n7.reports";
+        cout << "1. Add airplane\t2.remove airplane\n3.add pilot\t4.remove pilot\n5.add flight\t6.remove flight\n7.reports\n8.exit\n";
         cin >> menu;
         switch (menu) {
             case 1:
@@ -37,12 +37,13 @@ int main ()
                         break;
                     }
                     default:
-                        cout << "Invalid command";
+                        cout << "Invalid command\n";
                         break;
                 }
+                break;
             case 2: {
                 string id;
-                cout << "please enter the airplane id you want to remove";
+                cout << "please enter the airplane id you want to remove\n";
                 cin >> id;
                 // call remove airplane function
                 break;
@@ -80,13 +81,14 @@ int main ()
                         break;
                     }
                     default:
-                        cout << "Invalid command";
+                        cout << "Invalid command\n";
                         break;
                 }
+                break;
             }
             case 4: {
                 string id;
-                cout << "please enter the pilot id you want to remove";
+                cout << "please enter the pilot id you want to remove\n";
                 cin >> id;
                 // call remove pilot function
                 break;
@@ -101,7 +103,7 @@ int main ()
                 cin >> origin;
                 cout << "please enter the destination\n";
                 cin >> destination;
-                flight flight(origin, destination, pilotID, airplaneID);
+                flight test_flight(origin, destination, pilotID, airplaneID);
                 break;
             }
 
@@ -109,11 +111,11 @@ int main ()
                 // remove flight
                 break;
             case 7:
-
                 break;
-
+            case 8:
+                return 0;
             default:
-                cout << "Invalid command";
+                cout << "Invalid command\n";
                 break;
         }
         if (menu == 10) break;
