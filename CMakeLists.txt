@@ -10,6 +10,11 @@ add_executable(${PROJECT_NAME}
     
     src/main.cpp
     src/airplane.cpp
+    src/pasengerAirplane.cpp
+    src/pilot.cpp
+    src/proPilot.cpp
+    src/unexperiencedPilot.cpp
+    src/cargoAirplane.cpp
 
 
 

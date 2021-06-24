@@ -10,7 +10,7 @@ private:
 public:
     std::string id();
     airplane(/* args */);
-    ~airplane();
+    virtual ~airplane();
 };
 
 #endif
