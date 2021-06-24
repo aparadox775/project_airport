@@ -2,11 +2,10 @@
 
 
 
-
 airplane::airplane(/* args */)
 {
 
-    airplaneList.push_back(this);
+    // airplaneList.push_back(this);
     
 }
 
@@ -20,7 +19,7 @@ std::string airplane::id()
     return airplaneID;
 }
 
-bool airplane::remove(std::string idforRemove)
+bool airplane::remove(std::vector <airplane *> airplaneList, std::string idforRemove)
 {
     std::vector <airplane *>::iterator it = airplaneList.begin();
     for (airplane * temp:airplaneList)

@@ -11,8 +11,8 @@ private:
 public:
     std::string id();
     airplane(/* args */);
-    virtual ~airplane();
-    static bool remove(std::string);
+    virtual ~airplane() = 0;
+    static bool remove(std::vector <airplane *>,std::string);
 };
 
 #endif

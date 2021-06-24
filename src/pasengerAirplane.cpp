@@ -9,3 +9,7 @@ pasengerAirplane::pasengerAirplane(int capacity)
 pasengerAirplane::~pasengerAirplane()
 {
 }
+
+void pasengerAirplane::setCapacity(int capacity) {
+    this->capacity = capacity;
+}

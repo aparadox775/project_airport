@@ -10,6 +10,7 @@ private:
 public:
     pasengerAirplane(int);
     ~pasengerAirplane();
+    void setCapacity(int);
 };
 
 #endif
