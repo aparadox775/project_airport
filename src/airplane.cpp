@@ -14,5 +14,6 @@ airplane::~airplane()
 std::string airplane::id()
 {
     return airplaneID;
+    std::cout << "st";
 }
 
