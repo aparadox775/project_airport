@@ -3,6 +3,7 @@ using namespace std;
 #include "airplane.h"
 #include "pasengerAirplane.h"
 #include "cargoAirplane.h"
+#include "flight.h"
 #include <cstring>
 int main ()
 {
