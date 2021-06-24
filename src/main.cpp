@@ -6,8 +6,14 @@ using namespace std;
 #include "proPilot.h"
 #include "unexperiencedPilot.h"
 #include "flight.h"
+#include <vector>
+
+
 int main ()
 {
+    // vector <flight>;
+    // vector <pilot *> pilots;
+    // vector <airplane *> airplanes;
     int menu;
     cout << "Welcome\n";
     while (true) {
@@ -26,7 +32,7 @@ int main ()
                         int capacity;
                         cout << "please enter the capacity:\n";
                         cin >> capacity;
-                        pasengerAirplane pasengerAirplane(capacity);
+                        pasengerAirplane temppasengerAirplane(capacity);
                         break;
                     }
                     case 2: {
@@ -45,7 +51,8 @@ int main ()
                 string id;
                 cout << "please enter the airplane id you want to remove\n";
                 cin >> id;
-                // call remove airplane function
+                airplane::remove(id);
+                                // call remove airplane function
                 break;
             }
             case 3: {
