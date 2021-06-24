@@ -8,7 +8,7 @@ class propilot : private pilot
 private:
     int rank;
 public:
-    propilot(int rank);
+    propilot(int rank,int age,std::string name);
     ~propilot();
 };
 

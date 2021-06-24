@@ -15,6 +15,7 @@ add_executable(${PROJECT_NAME}
     src/proPilot.cpp
     src/unexperiencedPilot.cpp
     src/cargoAirplane.cpp
+    src/flight.cpp
 
 
 

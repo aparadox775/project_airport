@@ -7,8 +7,9 @@ class unexperiencedpilot : private pilot
 {
 private:
     int flightsnumber;
+    void increase();
 public:
-    unexperiencedpilot(int);
+    unexperiencedpilot(int,int,std::string);
     ~unexperiencedpilot();
 };
 
