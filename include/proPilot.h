@@ -6,9 +6,9 @@
 class propilot : private pilot
 {
 private:
-    
+    int rank;
 public:
-    propilot();
+    propilot(int rank);
     ~propilot();
 };
 
