@@ -7,11 +7,16 @@ using namespace std;
 #include "unexperiencedPilot.h"
 #include "flight.h"
 #include <vector>
+#include <algorithm>
+#include "mainmenu.h"
 
 int main()
 {
-    // vector <flight>;
-    // vector <pilot *> pilots;
+/*     mainmenu menu;
+    menu.test(); */
+    
+    vector<flight *> flights;
+    vector<pilot *> pilots;
     vector<airplane *> airplanes;
     int menu;
     cout << "Welcome\n";
@@ -19,7 +24,7 @@ int main()
     {
 
         cout << "what do you desire to do?\n";
-        cout << "1. Add airplane\t2.remove airplane\n3.add pilot\t4.remove pilot\n5.add flight\t6.remove flight\n7.reports\n8.exit\n";
+        cout << "1.Add airplane\t2.remove airplane\n3.add pilot\t4.remove pilot\n5.add flight\t6.remove flight\n7.reports\n8.exit\n";
         cin >> menu;
         switch (menu)
         {
@@ -32,12 +37,13 @@ int main()
             {
             case 1:
             {
-                static pasengerAirplane *temppasengerAirplane;
+                // static pasengerAirplane *temppasengerAirplane;
                 int capacity;
                 cout << "please enter the capacity:\n";
                 cin >> capacity;
-                (temppasengerAirplane)->setCapacity(capacity);
-                airplanes.push_back(static_cast<airplane *> (temppasengerAirplane));
+                pasengerAirplane *temp = new pasengerAirplane(capacity);
+                // (temppasengerAirplane)->setCapacity(capacity);
+                airplanes.push_back(temp);
                 break;
             }
             case 2:
@@ -45,7 +51,8 @@ int main()
                 int weight;
                 cout << "please enter the weight:\n";
                 cin >> weight;
-                cargoAirplane cargoAirplane(weight);
+                cargoAirplane *temp = new cargoAirplane(weight);
+                airplanes.push_back(temp);
                 break;
             }
             default:
@@ -81,7 +88,8 @@ int main()
                 cin >> age;
                 cout << "please enter the name\n";
                 cin >> name;
-                propilot propilot(rank, age, name);
+                propilot *temp = new propilot(rank, age, name);
+                pilots.push_back(temp);
                 break;
             }
             case 2:
@@ -95,7 +103,8 @@ int main()
                 cin >> age;
                 cout << "please enter the name\n";
                 cin >> name;
-                unexperiencedpilot unexperiencedpilot(flightNumber, age, name);
+                unexperiencedpilot *temp = new unexperiencedpilot(flightNumber, age, name);
+                pilots.push_back(temp);
                 break;
             }
             default:
@@ -109,6 +118,7 @@ int main()
             string id;
             cout << "please enter the pilot id you want to remove\n";
             cin >> id;
+            pilot::remove(pilots, id);
             // call remove pilot function
             break;
         }
@@ -123,15 +133,55 @@ int main()
             cin >> origin;
             cout << "please enter the destination\n";
             cin >> destination;
-            flight test_flight(origin, destination, pilotID, airplaneID);
+
+            flight *temp = new flight(origin, destination, pilotID, airplaneID);
+            flights.push_back(temp);
             break;
         }
 
         case 6:
+        {
+            cout << "entere pilot id you wana remove flights";
+            string input;
+            cin >> input;
+            flight::remove(flights, input);
             // remove flight
             break;
+        }
         case 7:
-            break;
+        {
+            size_t property;
+            cout << "how do you want your report to be sorted? \n1.Pilot ID\t\t2.airplaneId\n3.dest\t\t4.origin\n";
+            cin >> property;
+
+            sort(flights.begin(), flights.end(), [property](flight *a, flight *b)
+                 {
+                     switch (property)
+                     {
+                     case 1:
+                         return a->getPilotID() < b->getPilotID();
+                         break;
+                     case 2:
+                         return a->getPlneID() < b->getPlneID()  ;
+                         break;
+                     case 3:
+                         return a->getDest()   < b->getDest()    ;
+                         break;
+                     case 4:
+                         return a->getOrigin() < b->getOrigin()  ;
+                         break;
+                     default:
+                         break;
+                     }
+                 });
+            for (flight *temp : flights)
+            {
+                temp->print(cout);
+            }
+            char ch;
+            cin >> ch;
+        }
+        break;
         case 8:
             return 0;
         default:

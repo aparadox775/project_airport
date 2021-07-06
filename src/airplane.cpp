@@ -2,7 +2,7 @@
 
 
 
-airplane::airplane(/* args */)
+airplane::airplane(/* args */):airplaneID(generateRandomId("airplane"))
 {
 
     // airplaneList.push_back(this);
@@ -19,7 +19,7 @@ std::string airplane::id()
     return airplaneID;
 }
 
-bool airplane::remove(std::vector <airplane *> airplaneList, std::string idforRemove)
+bool airplane::remove(std::vector <airplane *>& airplaneList, std::string idforRemove)
 {
     std::vector <airplane *>::iterator it = airplaneList.begin();
     for (airplane * temp:airplaneList)
@@ -27,8 +27,10 @@ bool airplane::remove(std::vector <airplane *> airplaneList, std::string idforRe
         if (temp->id() == idforRemove)
         {
             airplaneList.erase(it);
+            return true;
         }
         it++;
     }
+    return false;
         
 }

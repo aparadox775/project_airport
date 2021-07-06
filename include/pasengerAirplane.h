@@ -3,7 +3,7 @@
 
 #include "airplane.h"
 
-class pasengerAirplane : private airplane
+class pasengerAirplane : public airplane
 {
 private:
     int capacity;

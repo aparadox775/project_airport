@@ -3,7 +3,7 @@
 
 #include "pilot.h"
 
-class propilot : private pilot
+class propilot : public pilot
 {
 private:
     int rank;

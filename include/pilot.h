@@ -2,7 +2,8 @@
 #define PILOT_H
 
 #include <iostream>
-
+#include <vector>
+#include "idGen.h"
 class pilot
 {
 private:
@@ -15,6 +16,8 @@ public:
     int getAge() const;
     std::string getId();
     std::string getName();
+    
+    static bool remove(std::vector <pilot *> &airplaneList, std::string idforRemove);
     ~pilot();
 };
 

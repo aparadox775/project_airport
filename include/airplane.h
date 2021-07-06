@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "idGen.h"
 class airplane
 {
 private:
@@ -12,7 +13,7 @@ public:
     std::string id();
     airplane(/* args */);
     virtual ~airplane() = 0;
-    static bool remove(std::vector <airplane *>,std::string);
+    static bool remove(std::vector <airplane *>&,std::string);
 };
 
 #endif

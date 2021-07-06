@@ -3,7 +3,7 @@
 
 #include "pilot.h"
 
-class unexperiencedpilot : private pilot
+class unexperiencedpilot : public pilot
 {
 private:
     int flightsnumber;
